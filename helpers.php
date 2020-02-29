@@ -10,6 +10,7 @@ function floadcsv( $file, $headings = false, $delimiter = ',', $limit = null ) {
     }
 
     $taken = 0;
+    $limit = $limit ? $limit : INF;
     while ( ( $taken < $limit ) && ( $l = fgetcsv( $fp, 0, $delimiter ) ) ) {
         $taken ++;
         if ( ! $headings ) {
