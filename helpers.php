@@ -5,7 +5,9 @@ function floadcsv( $file, $headings = false, $delimiter = ',', $limit = null ) {
     $fp    = fopen( $file, 'r' );
     $lines = [];
 
-    if ( $headings ) {
+    if ( is_array( $headings ) ) {
+        $h = $headings;
+    } elseif ( $headings == true ) {
         $h = fgetcsv( $fp, 0, $delimiter );
     }
 
